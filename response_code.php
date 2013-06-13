@@ -56,6 +56,7 @@ switch ($code) {
 }
 
 header($prefix . $header);
+echo ("Use param <em>code</em> in request to change response <em>HTTP Status</em>.");
 die;
 
 ?>
