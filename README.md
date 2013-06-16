@@ -1,17 +1,17 @@
-## HTTP service to get response with `status` what you defined in `request` param `code`.
+## HTTP service returns response with @HTTP Status@ what you defined in `request` param `code`.
 
-### Example
+### Examples
 
-`GET http://http-codes.pl/`
 Code define 200 as default
+  `GET http://http-codes.pl/`
 
-`GET http://http-codes.pl/?code=500` 
 Server return, using GET method, HTTP Status 500 Internal Server Error
+  `GET http://http-codes.pl/?code=500` 
 
-`POST http://http-codes.pl/?code=404`
 Server return, useing POST method, HTTP Status 404 Not Found
+  `POST http://http-codes.pl/?code=404`
 
-### List supported HTTP Status:
+### List supported HTTP Status
 
 - 100 Continue
 - 101 Switching Protocols
