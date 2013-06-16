@@ -2,15 +2,15 @@
 
 ### Examples
 
-Code define 200 as default, server return `200 OK`:
+Server returns: `200 OK` _[default: 200]_:
 
     GET http://http-codes.pl/
 
-Server return, using GET method, HTTP Status `500 Internal Server Error`:
+Server returns: `500 Internal Server Error`:
 
     GET http://http-codes.pl/?code=500
 
-Server return, useing POST method, HTTP Status `404 Not Found`:
+Server returns: `404 Not Found`:
 
     POST http://http-codes.pl/?code=404
 
