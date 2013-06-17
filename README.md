@@ -2,7 +2,7 @@
 
 ### Examples
 
-Server returns: `200 OK` _[default: 200]_:
+Server returns: `200 OK` _[default]_:
 
     GET http://http-codes.pl/
 
@@ -93,4 +93,5 @@ Server returns: `404 Not Found`:
 ### Documentation
 
 Source: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
 See: http://tools.ietf.org/html/rfc2324
