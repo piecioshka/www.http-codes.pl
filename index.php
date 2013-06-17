@@ -98,6 +98,9 @@ switch ($code) {
     case 511: $header = "Network Authentication Required"; break;
     case 598: $header = "Network read timeout error"; break;
     case 599: $header = "Network connect timeout error"; break;
+    default:
+        $code = 200;
+        $header = "OK";
 }
 
 header($prefix . $code . " " . $header);
