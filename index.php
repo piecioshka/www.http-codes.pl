@@ -1,12 +1,15 @@
 <?php
 
 // source: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+// polish: http://pl.wikipedia.org/wiki/Kod_odpowiedzi_HTTP
+
 // see: http://tools.ietf.org/html/rfc2324
 
 // default response headers
 $code = 200;
 $prefix = "HTTP/1.1 ";
 $header = "OK";
+$section = 0;
 
 if (isset($_REQUEST['code'])) {
     if (is_numeric($_REQUEST['code'])) {
@@ -14,98 +17,116 @@ if (isset($_REQUEST['code'])) {
     }
 }
 
-
-switch ($code) {
+$codes = array(
     // 1xx
-    case 100: $header = "Continue"; break;
-    case 101: $header = "Switching Protocols"; break;
-    case 102: $header = "Processing"; break;
+    100 => "Continue",
+    101 => "Switching Protocols",
+    102 => "Processing",
     
     // 2xx
-    case 200: $header = "OK"; break;
-    case 201: $header = "Created"; break;
-    case 202: $header = "Accepted"; break;
-    case 203: $header = "Non-Authoritative Information"; break;
-    case 204: $header = "No Content"; break;
-    case 205: $header = "Reset Content"; break;
-    case 206: $header = "Partial Content"; break;
-    case 207: $header = "Multi-Status"; break;
-    case 208: $header = "Already Reported"; break;
-    case 226: $header = "IM Used"; break;
+    200 => "OK",
+    201 => "Created",
+    202 => "Accepted",
+    203 => "Non-Authoritative Information",
+    204 => "No Content",
+    205 => "Reset Content",
+    206 => "Partial Content",
+    207 => "Multi-Status",
+    208 => "Already Reported",
+    226 => "IM Used",
     
     // 3xx
-    case 300: $header = "Multiple Choices"; break;
-    case 301: $header = "Moved Permamently"; break;
-    case 302: $header = "Found"; break;
-    case 303: $header = "See Other"; break;
-    case 304: $header = "Not Modified"; break;
-    case 305: $header = "Use Proxy"; break;
-    case 306: $header = "Switch Proxy"; break;
-    case 307: $header = "Temporary Redirect"; break;
-    case 308: $header = "Permanent Redirect"; break;
+    300 => "Multiple Choices",
+    301 => "Moved Permamently",
+    302 => "Found",
+    303 => "See Other",
+    304 => "Not Modified",
+    305 => "Use Proxy",
+    306 => "Switch Proxy",
+    307 => "Temporary Redirect",
+    308 => "Permanent Redirect",
     
     // 4xx
-    case 400: $header = "Bad Request"; break;
-    case 401: $header = "Unauthorized"; break;
-    case 402: $header = "Payment Required"; break;
-    case 403: $header = "Forbidden"; break;
-    case 404: $header = "Not Found"; break;
-    case 405: $header = "Method Not Allowed"; break;
-    case 406: $header = "Not Acceptable"; break;
-    case 407: $header = "Proxy Authentication Required"; break;
-    case 408: $header = "Request Timeout"; break;
-    case 409: $header = "Conflict"; break;
-    case 410: $header = "Gone"; break;
-    case 411: $header = "Length Required"; break;
-    case 412: $header = "Precondition Failed"; break;
-    case 413: $header = "Request Entity Too Large"; break;
-    case 414: $header = "Request-URI Too Long"; break;
-    case 415: $header = "Unsupported Media Type"; break;
-    case 416: $header = "Requested Range Not Satisfiable"; break;
-    case 417: $header = "Expectation Failed"; break;
-    case 418: $header = "I'm a teapot"; break;
-    case 420: $header = "Enhance Your Calm"; break;
-    case 422: $header = "Unprocessable Entity"; break;
-    case 423: $header = "Locked"; break;
-    case 424: $header = "Failed Dependency"; break;
-    case 425: $header = "Unordered Collection"; break;
-    case 426: $header = "Upgrade Required"; break;
-    case 428: $header = "Precondition Required"; break;
-    case 429: $header = "Too Many Requests"; break;
-    case 431: $header = "Request Header Fields Too Large"; break;
-    case 444: $header = "No Response"; break;
-    case 449: $header = "Retry With"; break;
-    case 450: $header = "Blocked by Windows Parental Controls"; break;
-    case 451: $header = "Unavailable For Legal Reasons"; break;
-    case 494: $header = "Request Header Too Large"; break;
-    case 495: $header = "Cert Error"; break;
-    case 496: $header = "No Cert"; break;
-    case 497: $header = "HTTP to HTTPS"; break;
-    case 499: $header = "Client Closed Request"; break;
+    400 => "Bad Request",
+    401 => "Unauthorized",
+    402 => "Payment Required",
+    403 => "Forbidden",
+    404 => "Not Found",
+    405 => "Method Not Allowed",
+    406 => "Not Acceptable",
+    407 => "Proxy Authentication Required",
+    408 => "Request Timeout",
+    409 => "Conflict",
+    410 => "Gone",
+    411 => "Length Required",
+    412 => "Precondition Failed",
+    413 => "Request Entity Too Large",
+    414 => "Request-URI Too Long",
+    415 => "Unsupported Media Type",
+    416 => "Requested Range Not Satisfiable",
+    417 => "Expectation Failed",
+    418 => "I'm a teapot",
+    420 => "Enhance Your Calm",
+    422 => "Unprocessable Entity",
+    423 => "Locked",
+    424 => "Failed Dependency",
+    425 => "Unordered Collection",
+    426 => "Upgrade Required",
+    428 => "Precondition Required",
+    429 => "Too Many Requests",
+    431 => "Request Header Fields Too Large",
+    444 => "No Response",
+    449 => "Retry With",
+    450 => "Blocked by Windows Parental Controls",
+    451 => "Unavailable For Legal Reasons",
+    494 => "Request Header Too Large",
+    495 => "Cert Error",
+    496 => "No Cert",
+    497 => "HTTP to HTTPS",
+    499 => "Client Closed Request",
     
     // 5xx
-    case 500: $header = "Internal Server Error"; break;
-    case 501: $header = "Not Implemented"; break;
-    case 502: $header = "Bad Gateway"; break;
-    case 503: $header = "Service Unavailable"; break;
-    case 504: $header = "Gateway Timeout"; break;
-    case 505: $header = "HTTP Version Not Supported"; break;
-    case 506: $header = "Variant Also Negotiates"; break;
-    case 507: $header = "Insufficient Storage"; break;
-    case 508: $header = "Loop Detected"; break;
-    case 509: $header = "Bandwidth Limit Exceeded"; break;
-    case 510: $header = "Not Extended"; break;
-    case 511: $header = "Network Authentication Required"; break;
-    case 598: $header = "Network read timeout error"; break;
-    case 599: $header = "Network connect timeout error"; break;
-    default:
-        $code = 200;
-        $header = "OK";
+    500 => "Internal Server Error",
+    501 => "Not Implemented",
+    502 => "Bad Gateway",
+    503 => "Service Unavailable",
+    504 => "Gateway Timeout",
+    505 => "HTTP Version Not Supported",
+    506 => "Variant Also Negotiates",
+    507 => "Insufficient Storage",
+    508 => "Loop Detected",
+    509 => "Bandwidth Limit Exceeded",
+    510 => "Not Extended",
+    511 => "Network Authentication Required",
+    598 => "Network read timeout error",
+    599 => "Network connect timeout error"
+);
+
+if (isset($codes[$code])) {
+    $header = $codes[$code];
+} else {
+    $code = 200;
+    $header = "OK";
 }
 
 header($prefix . $code . " " . $header);
 echo ($prefix . $code . " " . $header);
-echo ("<br /><small>Use param <em>code</em> in request to change response <em>HTTP Status</em>.</small>");
+
+echo '<ul>';
+foreach ($codes as $k => $v) {
+    if ($section < round($k/100)) {
+        echo '<li>';
+        $section = round($k/100);
+    }
+    
+    echo '<a style="padding: 0 5px" href="./?code='. $k .'">' . $k . '</a>';
+    
+    if ($section < round($k/100)) {
+        echo '</li>';
+    }
+}
+echo '</ul>';
+
 die;
 
 ?>
