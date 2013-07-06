@@ -1,16 +1,16 @@
-## Service to get response with defined `HTTP Status`
+## Service return defined `HTTP Status Code`
 
 ### Examples
 
-Server returns: `200 OK` _[default]_:
+Service returns: `200 OK` _[default]_:
 
     $ curl -I -X GET http://http-codes.pl/
 
-Server returns: `500 Internal Server Error`:
+Service returns: `500 Internal Server Error`:
 
     $ curl -I -X GET http://http-codes.pl/500
 
-Server returns: `404 Not Found`:
+Service returns: `404 Not Found`:
 
     $ curl -I -X POST http://http-codes.pl/404
 
@@ -93,4 +93,5 @@ Server returns: `404 Not Found`:
 ### Documentation
 
 Source: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+
 See: http://tools.ietf.org/html/rfc2324
