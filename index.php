@@ -37,7 +37,7 @@ $codes = array(
     
     // 3xx
     300 => "Multiple Choices",
-    301 => "Moved Permamently",
+    301 => "Moved Permanently",
     302 => "Found",
     303 => "See Other",
     304 => "Not Modified",
@@ -119,7 +119,7 @@ foreach ($codes as $k => $v) {
         $section = round($k/100);
     }
     
-    echo '<a style="padding: 0 5px" href="./?code='. $k .'">' . $k . '</a>';
+    echo '<a style="padding: 0 5px" href="/'. $k .'">' . $k . '</a>';
     
     if ($section < round($k/100)) {
         echo '</li>';
