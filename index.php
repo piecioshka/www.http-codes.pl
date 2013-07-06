@@ -9,7 +9,7 @@
 $code = 200;
 $prefix = "HTTP/1.1 ";
 $header = "OK";
-$section = 0;
+$section = 1;
 
 if (isset($_REQUEST['code'])) {
     if (is_numeric($_REQUEST['code'])) {
@@ -110,22 +110,19 @@ if (isset($codes[$code])) {
 }
 
 header($prefix . $code . " " . $header);
-echo ($prefix . $code . " " . $header);
+echo ("<h1>" . $prefix . $code . " " . $header . "</h1>");
 
-echo '<ul>';
+echo "\n<ul>\n<li>\n";
 foreach ($codes as $k => $v) {
-    if ($section < round($k/100)) {
-        echo '<li>';
-        $section = round($k/100);
+    if ($section < (int) ($k/100)) {
+        echo "</li>\n<li>\n";
+        $section = (int)($k/100);
     }
-    
-    echo '<a style="padding: 0 5px" href="/'. $k .'">' . $k . '</a>';
-    
-    if ($section < round($k/100)) {
-        echo '</li>';
-    }
+
+    echo '<a href="/'. $k .'">' . $k . '</a>' . "\n";
+
 }
-echo '</ul>';
+echo "</li>\n</ul>";
 
 die;
 
