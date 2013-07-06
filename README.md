@@ -8,11 +8,11 @@ Server returns: `200 OK` _[default]_:
 
 Server returns: `500 Internal Server Error`:
 
-    GET http://http-codes.pl/?code=500
+    GET http://http-codes.pl/500
 
 Server returns: `404 Not Found`:
 
-    POST http://http-codes.pl/?code=404
+    POST http://http-codes.pl/404
 
 ### List supported HTTP Status
 
