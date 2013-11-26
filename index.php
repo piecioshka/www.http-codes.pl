@@ -12,9 +12,7 @@ $header = "OK";
 $section = 1;
 
 if (isset($_REQUEST['code'])) {
-    if (is_numeric($_REQUEST['code'])) {
-        $code = $_REQUEST['code'];
-    }
+    $code = intval(substr($_REQUEST['code'], 0, 3));
 }
 
 $codes = array(
