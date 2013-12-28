@@ -95,3 +95,7 @@ Service returns: `404 Not Found`:
 Source: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 
 See: http://tools.ietf.org/html/rfc2324
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/piecioshka/http-codes.pl/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
