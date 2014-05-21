@@ -19,6 +19,7 @@ Service returns: `404 Not Found`:
 - 100 Continue
 - 101 Switching Protocols
 - 102 Processing
+- 111 Connection refused
 - 200 OK
 - 201 Created
 - 202 Accepted
@@ -30,7 +31,7 @@ Service returns: `404 Not Found`:
 - 208 Already Reported
 - 226 IM Used
 - 300 Multiple Choices
-- 301 Moved Permamently
+- 301 Moved Permanently
 - 302 Found
 - 303 See Other
 - 304 Not Modified
@@ -66,6 +67,7 @@ Service returns: `404 Not Found`:
 - 428 Precondition Required
 - 429 Too Many Requests
 - 431 Request Header Fields Too Large
+- 440 Login Timeout
 - 444 No Response
 - 449 Retry With
 - 450 Blocked by Windows Parental Controls
@@ -87,6 +89,11 @@ Service returns: `404 Not Found`:
 - 509 Bandwidth Limit Exceeded
 - 510 Not Extended
 - 511 Network Authentication Required
+- 520 Origin Error
+- 521 Web server is down
+- 522 Connection timed out
+- 523 Proxy Declined Request
+- 524 A timeout occurred
 - 598 Network read timeout error
 - 599 Network connect timeout error
     

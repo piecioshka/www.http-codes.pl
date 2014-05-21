@@ -20,7 +20,8 @@ $codes = array(
     100 => "Continue",
     101 => "Switching Protocols",
     102 => "Processing",
-    
+    111 => "Connection refused",
+
     // 2xx
     200 => "OK",
     201 => "Created",
@@ -32,7 +33,7 @@ $codes = array(
     207 => "Multi-Status",
     208 => "Already Reported",
     226 => "IM Used",
-    
+
     // 3xx
     300 => "Multiple Choices",
     301 => "Moved Permanently",
@@ -43,7 +44,7 @@ $codes = array(
     306 => "Switch Proxy",
     307 => "Temporary Redirect",
     308 => "Permanent Redirect",
-    
+
     // 4xx
     400 => "Bad Request",
     401 => "Unauthorized",
@@ -73,6 +74,7 @@ $codes = array(
     428 => "Precondition Required",
     429 => "Too Many Requests",
     431 => "Request Header Fields Too Large",
+    440 => "Login Timeout",
     444 => "No Response",
     449 => "Retry With",
     450 => "Blocked by Windows Parental Controls",
@@ -82,7 +84,7 @@ $codes = array(
     496 => "No Cert",
     497 => "HTTP to HTTPS",
     499 => "Client Closed Request",
-    
+
     // 5xx
     500 => "Internal Server Error",
     501 => "Not Implemented",
@@ -96,6 +98,11 @@ $codes = array(
     509 => "Bandwidth Limit Exceeded",
     510 => "Not Extended",
     511 => "Network Authentication Required",
+    520 => "Origin Error",
+    521 => "Web server is down",
+    522 => "Connection timed out",
+    523 => "Proxy Declined Request",
+    524 => "A timeout occurred",
     598 => "Network read timeout error",
     599 => "Network connect timeout error"
 );
@@ -108,20 +115,17 @@ if (isset($codes[$code])) {
 }
 
 header($prefix . $code . " " . $header);
-echo ("<h1>" . $prefix . $code . " " . $header . "</h1>");
+echo("<h1>" . $prefix . $code . " " . $header . "</h1>");
 
 echo "\n<ul>\n<li>\n";
 foreach ($codes as $k => $v) {
-    if ($section < (int) ($k/100)) {
+    if ($section < (int)($k / 100)) {
         echo "</li>\n<li>\n";
-        $section = (int)($k/100);
+        $section = (int)($k / 100);
     }
 
-    echo '<a href="/'. $k .'">' . $k . '</a>' . "\n";
-
+    echo '<a href="/' . $k . '">' . $k . '</a>' . "\n";
 }
 echo "</li>\n</ul>";
 
 die;
-
-?>
