@@ -99,7 +99,7 @@ Service returns: `404 Not Found`:
     
 ### Documentation
 
-Source: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
-
-See: http://tools.ietf.org/html/rfc2324
+* English: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+* Polish: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+* See: http://tools.ietf.org/html/rfc2324
 

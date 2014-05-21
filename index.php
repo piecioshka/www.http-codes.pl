@@ -1,8 +1,7 @@
 <?php
 
-// source: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
+// english: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 // polish: http://pl.wikipedia.org/wiki/Kod_odpowiedzi_HTTP
-
 // see: http://tools.ietf.org/html/rfc2324
 
 // default response headers
