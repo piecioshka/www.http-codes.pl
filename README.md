@@ -1,20 +1,28 @@
-## Service return defined `HTTP Status Code`
+# http-codes.pl
 
-### Examples
+> Service return defined `HTTP Status Code`
+
+## Examples
 
 Service returns: `200 OK` _[default]_:
 
+    ```
     $ curl -I -X GET http://http-codes.pl/
+    ```
 
 Service returns: `500 Internal Server Error`:
 
+    ```
     $ curl -I -X GET http://http-codes.pl/500
+    ```
 
 Service returns: `404 Not Found`:
 
+    ```
     $ curl -I -X POST http://http-codes.pl/404
+    ```
 
-### List supported HTTP Status
+## List supported HTTP Status
 
 - 100 Continue
 - 101 Switching Protocols
@@ -97,10 +105,9 @@ Service returns: `404 Not Found`:
 - 525 Origin SSL Handshake Error
 - 598 Network read timeout error
 - 599 Network connect timeout error
-    
-### Documentation
+
+## Documentation
 
 * English: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 * Polish: http://en.wikipedia.org/wiki/List_of_HTTP_status_codes
 * See: http://tools.ietf.org/html/rfc2324
-
