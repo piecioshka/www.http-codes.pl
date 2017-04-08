@@ -106,6 +106,7 @@ $codes = array(
     523 => "Proxy Declined Request",
     524 => "A timeout occurred",
     525 => "Origin SSL Handshake Error",
+    526 => "Invalid SSL Certificate",
     598 => "Network read timeout error",
     599 => "Network connect timeout error"
 );
